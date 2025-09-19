@@ -9,6 +9,4 @@ jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
     with:
-      board: nice_nano_v2
-      shield: my_6x5
       config-path: config
