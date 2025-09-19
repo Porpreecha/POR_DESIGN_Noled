@@ -1,52 +1,23 @@
 / {
-    zmk,physical-layouts {
-        compatible = "zmk,physical-layouts";
+    chosen {
+        zmk,kscan = &kscan0;
+    };
 
-        default: layout_0 {
-            label = "Default";
-            // กำหนดตำแหน่งจริงของปุ่มแต่ละตัว
-            // x, y เป็นหน่วย 0.25u
-            keys = <
-                /* row 0 */
-                &kp A   0    0
-                &kp B   25   0
-                &kp C   50   0
-                &kp D   75   0
-                &kp E   100  0
-                &kp F   125  0
+     kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
 
-                /* row 1 */
-                &kp G   0    25
-                &kp H   25   25
-                &kp I   50   25
-                &kp J   75   25
-                &kp K   100  25
-                &kp L   125  25
+        row-gpios = <&gpio0 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&gpio0 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&gpio0 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&gpio0 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 
-                /* row 2 */
-                &kp M   0    50
-                &kp N   25   50
-                &kp O   50   50
-                &kp P   75   50
-                &kp Q   100  50
-                &kp R   125  50
-
-                /* row 3 */
-                &kp S   0    75
-                &kp T   25   75
-                &kp U   50   75
-                &kp V   75   75
-                &kp W   100  75
-                &kp X   125  75
-
-                /* row 4 */
-                &kp Y   0    100
-                &kp Z   25   100
-                &kp 1   50   100
-                &kp 2   75   100
-                &kp 3   100  100
-                &kp 4   125  100
-            >;
-        };
+        col-gpios = <&gpio1 0 GPIO_ACTIVE_HIGH>,
+                    <&gpio1 1 GPIO_ACTIVE_HIGH>,
+                    <&gpio1 2 GPIO_ACTIVE_HIGH>,
+                    <&gpio1 3 GPIO_ACTIVE_HIGH>,
+                    <&gpio1 4 GPIO_ACTIVE_HIGH>;
     };
 };
