@@ -1,8 +1,5 @@
+# Copyright (c) 2025
 # SPDX-License-Identifier: MIT
 
-if SHIELD_MY_6X5
-
-config ZMK_KEYBOARD_NAME
-    default "My 6x5 Keyboard"
-
-endif
+config SHIELD_MY_6X5
+    bool "my_6x5"
