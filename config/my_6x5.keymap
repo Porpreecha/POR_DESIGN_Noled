@@ -2,14 +2,25 @@
     keymap {
         compatible = "zmk,keymap";
 
+        // เลเยอร์ 0 = Default Layer
         default_layer {
             bindings = <
-                &kp ESC    &kp Q    &kp W   &kp E   &kp R
-                &kp TAB    &kp A    &kp S   &kp D   &kp F
-                &kp LSHFT  &kp Z    &kp X   &kp C   &kp V
-                &kp LCTRL  &kp 1    &kp 2   &kp 3   &kp 4
-                &kp SPACE  &kp 5    &kp 6   &kp 7   &kp 8
-                &kp ENTER  &kp 9    &kp 0   &kp BSPC &kp DEL
+                &kp Q    &kp W    &kp E    &kp R    &kp T    &kp Y
+                &kp A    &kp S    &kp D    &kp F    &kp G    &kp H
+                &kp Z    &kp X    &kp C    &kp V    &kp B    &kp N
+                &kp 1    &kp 2    &kp 3    &kp 4    &kp 5    &kp 6
+                &kp 7    &kp 8    &kp 9    &kp 0    &kp MINUS &kp EQUAL
+            >;
+        };
+
+        // เลเยอร์ 1 = Function Layer (กด Fn)
+        fn_layer {
+            bindings = <
+                &kp ESC   &kp F1    &kp F2    &kp F3    &kp F4    &kp F5
+                &kp TAB   &kp F6    &kp F7    &kp F8    &kp F9    &kp F10
+                &kp LCTL  &kp F11   &kp F12   &kp INS   &kp DEL   &kp HOME
+                &kp LSFT  &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp END
+                &kp LALT  &kp BSPC  &kp SPC   &kp ENT   &mo 0     &trans
             >;
         };
     };
