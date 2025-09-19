@@ -2,7 +2,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // เลเยอร์ 0 = Default Layer
+        /* เลเยอร์ 0 = Default Layer */
         default_layer {
             bindings = <
                 &kp Q    &kp W    &kp E    &kp R    &kp T    &kp Y
@@ -13,7 +13,7 @@
             >;
         };
 
-        // เลเยอร์ 1 = Function Layer (กด Fn)
+        /* เลเยอร์ 1 = Function Layer (กด Fn) */
         fn_layer {
             bindings = <
                 &kp ESC   &kp F1    &kp F2    &kp F3    &kp F4    &kp F5
