@@ -1,13 +1,21 @@
 / {
-    chosen {
-        zmk,kscan = &kscan0;
-    };
-
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "COL2ROW";
+        label = "KSCAN";
 
-        rows = <&gpio0 10>, <&gpio0 11>, <&gpio0 12>, <&gpio0 13>, <&gpio0 14>, <&gpio0 15>;
-        cols = <&gpio1 01>, <&gpio1 02>, <&gpio1 03>, <&gpio1 04>, <&gpio1 05>;
+        diode-direction = "col2row";  /* หรือ "row2col" ตามการต่อจริง */
+
+        row-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 3 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 4 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 5 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 6 GPIO_ACTIVE_HIGH>;
+
+        col-gpios = <&gpio1 10 GPIO_ACTIVE_HIGH>,
+                    <&gpio1 11 GPIO_ACTIVE_HIGH>,
+                    <&gpio1 12 GPIO_ACTIVE_HIGH>,
+                    <&gpio1 13 GPIO_ACTIVE_HIGH>,
+                    <&gpio1 14 GPIO_ACTIVE_HIGH>,
+                    <&gpio1 15 GPIO_ACTIVE_HIGH>;
     };
 };
