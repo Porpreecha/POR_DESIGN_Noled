@@ -1,8 +1,11 @@
+#define LAYER_DEFAULT 0
+#define LAYER_FN 1
+
 / {
     keymap {
         compatible = "zmk,keymap";
 
-        /* เลเยอร์ 0 = Default Layer */
+        /* Layer 0: Default */
         default_layer {
             bindings = <
                 &kp Q    &kp W    &kp E    &kp R    &kp T    &kp Y
@@ -13,14 +16,14 @@
             >;
         };
 
-        /* เลเยอร์ 1 = Function Layer (กด Fn) */
+        /* Layer 1: Function */
         fn_layer {
             bindings = <
                 &kp ESC   &kp F1    &kp F2    &kp F3    &kp F4    &kp F5
                 &kp TAB   &kp F6    &kp F7    &kp F8    &kp F9    &kp F10
                 &kp LCTL  &kp F11   &kp F12   &kp INS   &kp DEL   &kp HOME
                 &kp LSFT  &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp END
-                &kp LALT  &kp BSPC  &kp SPC   &kp ENT   &mo 0     &trans
+                &kp LALT  &kp BSPC  &kp SPC   &kp ENT   &mo LAYER_DEFAULT  &trans
             >;
         };
     };
