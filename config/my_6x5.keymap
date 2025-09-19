@@ -21,9 +21,9 @@
             bindings = <
                 &kp ESC   &kp F1    &kp F2    &kp F3    &kp F4    &kp F5
                 &kp TAB   &kp F6    &kp F7    &kp F8    &kp F9    &kp F10
-                &kp LCTL  &kp F11   &kp F12   &kp INS   &kp DEL   &kp HOME
-                &kp LSFT  &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp END
-                &kp LALT  &kp BSPC  &kp SPC   &kp ENT   &mo LAYER_DEFAULT  &trans
+                &kp LCTRL  &kp F11   &kp F12   &kp INS   &kp DEL   &kp HOME
+                &kp LSHIFT  &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp END
+                &kp LALT  &kp BSPC  &kp SPACE   &kp ENT   &mo LAYER_DEFAULT   &trans
             >;
         };
     };
