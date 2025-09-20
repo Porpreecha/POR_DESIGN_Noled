@@ -13,7 +13,7 @@
         base_layer {
             label = "BASE";
             bindings = <
-                 &kp Q   &kp W   &kp E   &kp R   &kp T   &kp Y  &kp Q   &kp W   &kp E   &kp R   &kp T   &kp Y   &kp Q   &kp W   &kp E   &kp R  
+                 &kp ESC   &kp F1   &kp E   &kp R   &kp T   &kp Y  &kp Q   &kp W   &kp E   &kp R   &kp T   &kp Y   &kp Q   &kp W   &kp E   &kp R  
                 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
