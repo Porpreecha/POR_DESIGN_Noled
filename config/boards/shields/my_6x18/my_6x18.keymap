@@ -1,4 +1,21 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+#define BASE 0
+#define FN   1
+
 / {
+    behaviors {
+        trans: trans_behavior {
+            compatible = "zmk,behavior-transparent";
+        };
+        none: none_behavior {
+            compatible = "zmk,behavior-none";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
