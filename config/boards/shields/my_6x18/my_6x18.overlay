@@ -3,7 +3,7 @@
 
     chosen {
         zmk,kscan = &kscan0;
-        zmk,backlight = &neopixel0;
+        zmk,rgb-strip = &neopixel0;
     };
 
     kscan0: kscan {
@@ -35,7 +35,7 @@
         #led-cells = <1>;
         label = "NEOPIXEL";
         status = "okay";
-        count = <108>;
+        count = <108>;  /* 108 ปุ่ม = 108 LED */
     };
 };
 
