@@ -3,59 +3,42 @@
 
     chosen {
         zmk,kscan = &kscan0;
-        zmk,backlight = &neopixel0;   /* ให้ ZMK รู้จัก node ไฟ */
+        zmk,backlight = &neopixel0;
     };
 
-    /* สแกนเมทริกซ์คีย์บอร์ด 6x18 */
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
 
-        /* 6 แถวจาก GPIO ของ MCU (ตัวอย่างใช้ P0.00–P0.05) */
-        row-gpios = <&gpio0 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-                    <&gpio0 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-                    <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-                    <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-                    <&gpio0 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-                    <&gpio0 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+        row-gpios = <&gpio0 0 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 1 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 2 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 3 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 4 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 5 GPIO_ACTIVE_HIGH>;
 
-        /* 18 คอลัมน์จาก MCP23017 สองตัว */
         col-gpios =
-            /* MCP0: 16 ขา */
-            <&mcp23017_0 0 GPIO_ACTIVE_HIGH>,
-            <&mcp23017_0 1 GPIO_ACTIVE_HIGH>,
-            <&mcp23017_0 2 GPIO_ACTIVE_HIGH>,
-            <&mcp23017_0 3 GPIO_ACTIVE_HIGH>,
-            <&mcp23017_0 4 GPIO_ACTIVE_HIGH>,
-            <&mcp23017_0 5 GPIO_ACTIVE_HIGH>,
-            <&mcp23017_0 6 GPIO_ACTIVE_HIGH>,
-            <&mcp23017_0 7 GPIO_ACTIVE_HIGH>,
-            <&mcp23017_0 8 GPIO_ACTIVE_HIGH>,
-            <&mcp23017_0 9 GPIO_ACTIVE_HIGH>,
-            <&mcp23017_0 10 GPIO_ACTIVE_HIGH>,
-            <&mcp23017_0 11 GPIO_ACTIVE_HIGH>,
-            <&mcp23017_0 12 GPIO_ACTIVE_HIGH>,
-            <&mcp23017_0 13 GPIO_ACTIVE_HIGH>,
-            <&mcp23017_0 14 GPIO_ACTIVE_HIGH>,
-            <&mcp23017_0 15 GPIO_ACTIVE_HIGH>,
-
-            /* MCP1: ใช้เพิ่มอีก 2 ขา (ครบ 18) */
-            <&mcp23017_1 0 GPIO_ACTIVE_HIGH>,
-            <&mcp23017_1 1 GPIO_ACTIVE_HIGH>;
+            <&mcp23017_0 0 GPIO_ACTIVE_HIGH>, <&mcp23017_0 1 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 2 GPIO_ACTIVE_HIGH>, <&mcp23017_0 3 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 4 GPIO_ACTIVE_HIGH>, <&mcp23017_0 5 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 6 GPIO_ACTIVE_HIGH>, <&mcp23017_0 7 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 8 GPIO_ACTIVE_HIGH>, <&mcp23017_0 9 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 10 GPIO_ACTIVE_HIGH>, <&mcp23017_0 11 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 12 GPIO_ACTIVE_HIGH>, <&mcp23017_0 13 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_0 14 GPIO_ACTIVE_HIGH>, <&mcp23017_0 15 GPIO_ACTIVE_HIGH>,
+            <&mcp23017_1 0 GPIO_ACTIVE_HIGH>, <&mcp23017_1 1 GPIO_ACTIVE_HIGH>;
     };
 
-    /* Node สำหรับไฟ WS2812 (per-key RGB) */
     neopixel0: neopixel {
         compatible = "adafruit,neopixel";
-        gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;  /* ขา data out ไป LED chain */
+        gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
         #led-cells = <1>;
         label = "NEOPIXEL";
         status = "okay";
-        count = <108>;   /* จำนวน LED ตามปุ่ม */
+        count = <108>;
     };
 };
 
-/* MCP23017 I/O expander บน I2C */
 &i2c0 {
     status = "okay";
 
