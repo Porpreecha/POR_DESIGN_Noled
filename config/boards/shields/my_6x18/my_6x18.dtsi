@@ -3,25 +3,6 @@
         zmk,kscan = &kscan0;
     };
 
-    /* I2C bus (แก้ &i2c0 ให้ตรงกับบอร์ดจริง) */
-    &i2c0 {
-        status = "okay";
-
-        mcp23017_0: mcp23017@20 {
-            compatible = "microchip,mcp23017";
-            reg = <0x20>;
-            gpio-controller;
-            #gpio-cells = <2>;
-        };
-
-        mcp23017_1: mcp23017@21 {
-            compatible = "microchip,mcp23017";
-            reg = <0x21>;
-            gpio-controller;
-            #gpio-cells = <2>;
-        };
-    };
-
     /* Keyscan matrix */
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
