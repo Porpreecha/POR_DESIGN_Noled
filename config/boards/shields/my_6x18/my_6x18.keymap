@@ -7,15 +7,6 @@
 #define FN   1
 
 / {
-    behaviors {
-        trans: trans_behavior {
-            compatible = "zmk,behavior-transparent";
-        };
-        none: none_behavior {
-            compatible = "zmk,behavior-none";
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
