@@ -3,36 +3,15 @@
 
     chosen {
         zmk,kscan = &kscan0;
+        zmk,backlight = &neopixel0;   /* ให้ ZMK รู้จัก node ไฟ */
     };
 
-    /* ตัวอย่าง: สร้าง node MCP23017 สองตัว ต่ออยู่บน I2C bus (ปรับ &i2c0 ให้ตรงกับบอร์ดคุณ) */
-    &i2c0 {
-        status = "okay";
-
-        mcp23017_0: mcp23017@20 {
-            compatible = "microchip,mcp23017";
-            reg = <0x20>;
-            gpio-controller;
-            #gpio-cells = <2>;
-            /* interrupts optional:
-            interrupt-parent = <&gpio0>;
-            interrupts = <PIN_NUM IRQ_TYPE_LEVEL_LOW>;
-            */
-        };
-
-        mcp23017_1: mcp23017@21 {
-            compatible = "microchip,mcp23017";
-            reg = <0x21>;
-            gpio-controller;
-            #gpio-cells = <2>;
-        };
-    };
-
+    /* สแกนเมทริกซ์คีย์บอร์ด 6x18 */
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
 
-        /* rows: สมมติใช้ GPIO ของ MCU (gpio0 pins) -- ปรับเลขพินให้ตรงกับ nice_nano_v2 layout ของคุณ */
+        /* 6 แถวจาก GPIO ของ MCU (ตัวอย่างใช้ P0.00–P0.05) */
         row-gpios = <&gpio0 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
                     <&gpio0 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
                     <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
@@ -40,9 +19,9 @@
                     <&gpio0 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
                     <&gpio0 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 
-        /* cols: ใช้ MCP23017 ไฟล์เลขพิน 0..15 และถ้าจำเป็นเพิ่มจากตัวที่สอง */
-        col-gpios = 
-            /* MCP0 pins 0..15 (16 pins) */
+        /* 18 คอลัมน์จาก MCP23017 สองตัว */
+        col-gpios =
+            /* MCP0: 16 ขา */
             <&mcp23017_0 0 GPIO_ACTIVE_HIGH>,
             <&mcp23017_0 1 GPIO_ACTIVE_HIGH>,
             <&mcp23017_0 2 GPIO_ACTIVE_HIGH>,
@@ -60,18 +39,37 @@
             <&mcp23017_0 14 GPIO_ACTIVE_HIGH>,
             <&mcp23017_0 15 GPIO_ACTIVE_HIGH>,
 
-            /* MCP1 pins 0..1 (เพื่อให้ครบ 18) */
+            /* MCP1: ใช้เพิ่มอีก 2 ขา (ครบ 18) */
             <&mcp23017_1 0 GPIO_ACTIVE_HIGH>,
             <&mcp23017_1 1 GPIO_ACTIVE_HIGH>;
     };
 
-    /* WS2812 (neopixel) node — ต่อ data pin เข้า MCU เช่น gpio0 pin 13 (ปรับตามบอร์ด) */
+    /* Node สำหรับไฟ WS2812 (per-key RGB) */
     neopixel0: neopixel {
-        compatible = "adafruit,neopixel"; /* ใน Zephyr บางเวอร์ชัน binding อาจต่างกัน — ปรับตาม driver ที่ใช้ */
-        gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
+        compatible = "adafruit,neopixel";
+        gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;  /* ขา data out ไป LED chain */
         #led-cells = <1>;
         label = "NEOPIXEL";
         status = "okay";
-        /* count = <N>;  <-- ถ้าต้องการระบุจำนวน LED */
+        count = <108>;   /* จำนวน LED ตามปุ่ม */
+    };
+};
+
+/* MCP23017 I/O expander บน I2C */
+&i2c0 {
+    status = "okay";
+
+    mcp23017_0: mcp23017@20 {
+        compatible = "microchip,mcp23017";
+        reg = <0x20>;
+        gpio-controller;
+        #gpio-cells = <2>;
+    };
+
+    mcp23017_1: mcp23017@21 {
+        compatible = "microchip,mcp23017";
+        reg = <0x21>;
+        gpio-controller;
+        #gpio-cells = <2>;
     };
 };
