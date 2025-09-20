@@ -29,7 +29,7 @@
                 &trans      &trans     &trans      &trans      &trans      &trans         &trans          &trans       &trans           &trans       &trans      &trans             &trans          &trans &trans &trans &trans &trans &trans
                 &trans      &trans     &trans      &trans      &trans      &trans         &trans          &trans       &trans           &trans       &trans      &trans             &trans          &trans &trans &trans &trans &trans &trans
                 &trans      &trans     &trans      &trans      &trans      &trans         &trans          &trans       &trans           &trans       &trans      &trans             &trans          &trans &trans &trans &trans &trans &trans
-                &trans      &trans     &trans      &trans      &trans      &trans         &trans          &trans       &trans           &trans       &trans      &rgb_ug HUE_UP     &rgb_ug HUE_DOWN &rgb_ug SPD_DOWN &rgb_ug SPD_UP &trans &trans
+                &trans      &trans     &trans      &trans      &trans      &trans         &trans          &trans       &trans           &trans       &trans      &rgb_ug HUE_UP     &rgb_ug HUE_DOWN &rgb_ug SPD_DOWN &rgb_ug SPD_UP &trans &trans &trans
                 &trans      &trans     &trans      &trans      &trans      &trans         &trans          &trans       &rgb_ug VAL_UP   &trans       &trans      &trans             &none           &trans &trans &rgb_ug PREV_EFFECT &rgb_ug VAL_DOWN &rgb_ug NEXT_EFFECT
             >;
         };
