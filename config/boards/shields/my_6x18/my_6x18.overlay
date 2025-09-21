@@ -5,6 +5,7 @@
         zmk,kscan = &kscan0;
     };
 
+    /* Matrix Scan */
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
@@ -27,8 +28,19 @@
             <&mcp23017_0 14 GPIO_ACTIVE_HIGH>, <&mcp23017_0 15 GPIO_ACTIVE_HIGH>,
             <&mcp23017_1 0 GPIO_ACTIVE_HIGH>, <&mcp23017_1 1 GPIO_ACTIVE_HIGH>;
     };
+
+    /* Per-Key LED (WS2812 chain) */
+    ws2812: led_strip {
+        compatible = "zmk,led-strip";
+        label = "PerKeyLED";
+        gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;   /* เปลี่ยนเลข pin ให้ตรงกับ DATA ของ LED */
+        chain-length = <81>;                   /* จำนวน LED = จำนวนปุ่ม */
+        color-mapping = <LED_COLOR_MAPPING_GRB>; /* WS2812 ใช้ GRB */
+        status = "okay";
+    };
 };
 
+/* I²C expanders */
 &i2c0 {
     status = "okay";
 
@@ -45,4 +57,9 @@
         gpio-controller;
         #gpio-cells = <2>;
     };
+};
+
+/* Hook LED node เข้ากับ backlight ของ ZMK */
+&zmk_backlight {
+    led-strip = <&ws2812>;
 };
