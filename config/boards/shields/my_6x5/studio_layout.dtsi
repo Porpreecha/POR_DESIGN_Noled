@@ -1,25 +1,58 @@
 / {
-    zmk,keyboard {
-        compatible = "zmk,keyboard";
+    studio_layout: studio_layout_0 {
+        compatible = "zmk,studio-layout";
 
-        zmk,layout {
-            compatible = "zmk,studio-layout";
-            zmk,layout-label = "My 5x6";
-            zmk,layout-description = "Custom 5x6 keyboard layout";
+        // My 5x6 Custom Layout for ZMK Studio
+        zmk,layout-label = "My 5x6";
+        zmk,layout-description = "Custom 5x6 keyboard layout with 19mm spacing";
 
-            // ตำแหน่งปุ่ม: 5 แถว × 6 คอลัมน์
-            keys = <
-                // Row 0
-                0 0  1 0  2 0  3 0  4 0  5 0
-                // Row 1
-                0 1  1 1  2 1  3 1  4 1  5 1
-                // Row 2
-                0 2  1 2  2 2  3 2  4 2  5 2
-                // Row 3
-                0 3  1 3  2 3  3 3  4 3  5 3
-                // Row 4
-                0 4  1 4  2 4  3 4  4 4  5 4
-            >;
-        };
+        /*
+         * STUDIO_KEY(index, x_mm, y_mm, rotation_deg)
+         * index = ตำแหน่งปุ่มตาม keymap
+         * x_mm, y_mm = ตำแหน่งปุ่ม (หน่วยมม.)
+         * rotation_deg = มุมหมุน (ส่วนใหญ่ใช้ 0)
+         */
+
+        keys = <
+            // Row 0 (บนสุด)
+            STUDIO_KEY(0,   0,   0, 0)
+            STUDIO_KEY(1,  19,   0, 0)
+            STUDIO_KEY(2,  38,   0, 0)
+            STUDIO_KEY(3,  57,   0, 0)
+            STUDIO_KEY(4,  76,   0, 0)
+            STUDIO_KEY(5,  95,   0, 0)
+
+            // Row 1
+            STUDIO_KEY(6,   0,  19, 0)
+            STUDIO_KEY(7,  19,  19, 0)
+            STUDIO_KEY(8,  38,  19, 0)
+            STUDIO_KEY(9,  57,  19, 0)
+            STUDIO_KEY(10, 76,  19, 0)
+            STUDIO_KEY(11, 95,  19, 0)
+
+            // Row 2
+            STUDIO_KEY(12,  0,  38, 0)
+            STUDIO_KEY(13, 19,  38, 0)
+            STUDIO_KEY(14, 38,  38, 0)
+            STUDIO_KEY(15, 57,  38, 0)
+            STUDIO_KEY(16, 76,  38, 0)
+            STUDIO_KEY(17, 95,  38, 0)
+
+            // Row 3
+            STUDIO_KEY(18,  0,  57, 0)
+            STUDIO_KEY(19, 19,  57, 0)
+            STUDIO_KEY(20, 38,  57, 0)
+            STUDIO_KEY(21, 57,  57, 0)
+            STUDIO_KEY(22, 76,  57, 0)
+            STUDIO_KEY(23, 95,  57, 0)
+
+            // Row 4 (ล่างสุด)
+            STUDIO_KEY(24,  0,  76, 0)
+            STUDIO_KEY(25, 19,  76, 0)
+            STUDIO_KEY(26, 38,  76, 0)
+            STUDIO_KEY(27, 57,  76, 0)
+            STUDIO_KEY(28, 76,  76, 0)
+            STUDIO_KEY(29, 95,  76, 0)
+        >;
     };
 };
