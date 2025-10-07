@@ -4,7 +4,6 @@
 #include <dt-bindings/zmk/outputs.h>
 #include "studio_layout.dtsi"
 
-
 #define BASE 0
 #define FN   1
 
@@ -33,5 +32,9 @@
                 &kp 7   &kp 8   &kp 9   &kp 0   &kp MINUS &kp EQUAL
             >;
         };
+    };
+
+    chosen {
+        zmk,studio-layout = &studio_layout;
     };
 };
