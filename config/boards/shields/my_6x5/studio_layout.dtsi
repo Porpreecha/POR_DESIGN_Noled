@@ -1,58 +1,51 @@
 /*
- * Custom ZMK Studio Layout
- * สำหรับคีย์บอร์ด 6x5 (หรือ 5x6)
- * ใช้แสดงใน ZMK Studio
+ * studio_layout.dtsi สำหรับคีย์บอร์ด 6x5
+ * ใช้ ZMK Studio
  */
 
-#define STUDIO_KEY(index, x, y, rot) <index x y rot>
+#define STUDIO_KEY(idx, x, y, rot) <idx x y rot>
 
 / {
     studio_layout: studio_layout_0 {
         compatible = "zmk,studio-layout";
-
         zmk,layout-label = "My 6x5";
-        zmk,layout-description = "Custom 6x5 keyboard layout with 19mm spacing";
+        zmk,layout-description = "Custom 6x5 keyboard layout";
 
         keys = <
-            // Row 0
-            STUDIO_KEY(0,   0,   0, 0)
-            STUDIO_KEY(1,  19,   0, 0)
-            STUDIO_KEY(2,  38,   0, 0)
-            STUDIO_KEY(3,  57,   0, 0)
-            STUDIO_KEY(4,  76,   0, 0)
-            STUDIO_KEY(5,  95,   0, 0)
+            STUDIO_KEY(0, 0, 0, 0)
+            STUDIO_KEY(1, 19, 0, 0)
+            STUDIO_KEY(2, 38, 0, 0)
+            STUDIO_KEY(3, 57, 0, 0)
+            STUDIO_KEY(4, 76, 0, 0)
+            STUDIO_KEY(5, 95, 0, 0)
 
-            // Row 1
-            STUDIO_KEY(6,   0,  19, 0)
-            STUDIO_KEY(7,  19,  19, 0)
-            STUDIO_KEY(8,  38,  19, 0)
-            STUDIO_KEY(9,  57,  19, 0)
-            STUDIO_KEY(10, 76,  19, 0)
-            STUDIO_KEY(11, 95,  19, 0)
+            STUDIO_KEY(6, 0, 19, 0)
+            STUDIO_KEY(7, 19, 19, 0)
+            STUDIO_KEY(8, 38, 19, 0)
+            STUDIO_KEY(9, 57, 19, 0)
+            STUDIO_KEY(10, 76, 19, 0)
+            STUDIO_KEY(11, 95, 19, 0)
 
-            // Row 2
-            STUDIO_KEY(12,  0,  38, 0)
-            STUDIO_KEY(13, 19,  38, 0)
-            STUDIO_KEY(14, 38,  38, 0)
-            STUDIO_KEY(15, 57,  38, 0)
-            STUDIO_KEY(16, 76,  38, 0)
-            STUDIO_KEY(17, 95,  38, 0)
+            STUDIO_KEY(12, 0, 38, 0)
+            STUDIO_KEY(13, 19, 38, 0)
+            STUDIO_KEY(14, 38, 38, 0)
+            STUDIO_KEY(15, 57, 38, 0)
+            STUDIO_KEY(16, 76, 38, 0)
+            STUDIO_KEY(17, 95, 38, 0)
 
-            // Row 3
-            STUDIO_KEY(18,  0,  57, 0)
-            STUDIO_KEY(19, 19,  57, 0)
-            STUDIO_KEY(20, 38,  57, 0)
-            STUDIO_KEY(21, 57,  57, 0)
-            STUDIO_KEY(22, 76,  57, 0)
-            STUDIO_KEY(23, 95,  57, 0)
+            STUDIO_KEY(18, 0, 57, 0)
+            STUDIO_KEY(19, 19, 57, 0)
+            STUDIO_KEY(20, 38, 57, 0)
+            STUDIO_KEY(21, 57, 57, 0)
+            STUDIO_KEY(22, 76, 57, 0)
+            STUDIO_KEY(23, 95, 57, 0)
 
-            // Row 4
-            STUDIO_KEY(24,  0,  76, 0)
-            STUDIO_KEY(25, 19,  76, 0)
-            STUDIO_KEY(26, 38,  76, 0)
-            STUDIO_KEY(27, 57,  76, 0)
-            STUDIO_KEY(28, 76,  76, 0)
-            STUDIO_KEY(29, 95,  76, 0)
+            STUDIO_KEY(24, 0, 76, 0)
+            STUDIO_KEY(25, 19, 76, 0)
+            STUDIO_KEY(26, 38, 76, 0)
+            STUDIO_KEY(27, 57, 76, 0)
+            STUDIO_KEY(28, 76, 76, 0)
+            STUDIO_KEY(29, 95, 76, 0)
         >;
     };
 };
