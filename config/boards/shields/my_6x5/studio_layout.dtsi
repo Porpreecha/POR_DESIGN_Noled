@@ -1,20 +1,20 @@
+/*
+ * Custom ZMK Studio Layout
+ * สำหรับคีย์บอร์ด 6x5 (หรือ 5x6)
+ * ใช้แสดงใน ZMK Studio
+ */
+
+#define STUDIO_KEY(index, x, y, rot) <index x y rot>
+
 / {
     studio_layout: studio_layout_0 {
         compatible = "zmk,studio-layout";
 
-        // My 5x6 Custom Layout for ZMK Studio
-        zmk,layout-label = "My 5x6";
-        zmk,layout-description = "Custom 5x6 keyboard layout with 19mm spacing";
-
-        /*
-         * STUDIO_KEY(index, x_mm, y_mm, rotation_deg)
-         * index = ตำแหน่งปุ่มตาม keymap
-         * x_mm, y_mm = ตำแหน่งปุ่ม (หน่วยมม.)
-         * rotation_deg = มุมหมุน (ส่วนใหญ่ใช้ 0)
-         */
+        zmk,layout-label = "My 6x5";
+        zmk,layout-description = "Custom 6x5 keyboard layout with 19mm spacing";
 
         keys = <
-            // Row 0 (บนสุด)
+            // Row 0
             STUDIO_KEY(0,   0,   0, 0)
             STUDIO_KEY(1,  19,   0, 0)
             STUDIO_KEY(2,  38,   0, 0)
@@ -46,7 +46,7 @@
             STUDIO_KEY(22, 76,  57, 0)
             STUDIO_KEY(23, 95,  57, 0)
 
-            // Row 4 (ล่างสุด)
+            // Row 4
             STUDIO_KEY(24,  0,  76, 0)
             STUDIO_KEY(25, 19,  76, 0)
             STUDIO_KEY(26, 38,  76, 0)
