@@ -1,7 +1,5 @@
-/*
- * studio_layout.dtsi สำหรับคีย์บอร์ด 6x5
- * ใช้ ZMK Studio
- */
+/* studio_layout.dtsi สำหรับ 6x5 keyboard */
+#include <dt-bindings/zmk/keys.h>
 
 #define STUDIO_KEY(idx, x, y, rot) <idx x y rot>
 
