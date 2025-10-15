@@ -1,3 +1,4 @@
 include:
-  - board: nrfmicro_13_52840
-    shield: my_6x5
+  - board: nrfmicro_13_52833
+    shield: my_5x7
+    config: config/
