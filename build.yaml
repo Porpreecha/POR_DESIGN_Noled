@@ -1,6 +1,6 @@
 include:
   - build:
-      board: NRF52840_MDK_H
+      board: nice_nano_v2
       shield: my_6x18
       config: config/
 
