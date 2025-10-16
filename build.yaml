@@ -1,7 +1,7 @@
 include:
   - build:
       board: NRF52840_MDK_H
-      shield: my_6x5
+      shield: my_6x18
       config: config/
 
 
