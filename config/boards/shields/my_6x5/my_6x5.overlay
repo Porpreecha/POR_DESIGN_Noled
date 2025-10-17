@@ -3,18 +3,20 @@
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
 
+        /* ===== Rows 5 ===== */
         row-gpios = <&gpio0 6 GPIO_ACTIVE_HIGH GPIO_PULL_DOWN>,
                     <&gpio0 8 GPIO_ACTIVE_HIGH GPIO_PULL_DOWN>,
                     <&gpio0 17 GPIO_ACTIVE_HIGH GPIO_PULL_DOWN>,
                     <&gpio0 20 GPIO_ACTIVE_HIGH GPIO_PULL_DOWN>,
                     <&gpio0 22 GPIO_ACTIVE_HIGH GPIO_PULL_DOWN>;
 
-        col-gpios = <&gpio0 24 GPIO_ACTIVE_HIGH>,
-                    <&gpio1 0 GPIO_ACTIVE_HIGH>,
-                    <&gpio1 1 GPIO_ACTIVE_HIGH>,
-                    <&gpio1 2 GPIO_ACTIVE_HIGH>,
-                    <&gpio1 4 GPIO_ACTIVE_HIGH>,
-                    <&gpio1 6 GPIO_ACTIVE_HIGH>;
+        /* ===== Columns 6 ===== */
+        col-gpios = <&gpio0 24 GPIO_ACTIVE_HIGH GPIO_PULL_DOWN>,
+                    <&gpio1 0 GPIO_ACTIVE_HIGH GPIO_PULL_DOWN>,
+                    <&gpio1 1 GPIO_ACTIVE_HIGH GPIO_PULL_DOWN>,
+                    <&gpio1 2 GPIO_ACTIVE_HIGH GPIO_PULL_DOWN>,
+                    <&gpio1 4 GPIO_ACTIVE_HIGH GPIO_PULL_DOWN>,
+                    <&gpio1 6 GPIO_ACTIVE_HIGH GPIO_PULL_DOWN>;
     };
 
     default_transform: keymap_transform_0 {
@@ -31,17 +33,36 @@
         >;
     };
 
+    /* ===== ปุ่ม Bluetooth กดค้าง 2 วินาที ===== */
+    behaviors {
+        bt_adv_hold: behavior_bt_adv_hold {
+            compatible = "zmk,behavior-hold-tap";
+            label = "BT_ADV_HOLD";
+            tapping-term-ms = <2000>;   /* 2 วินาที */
+            flavor = "tap-preferred";
+            bindings = <&bt BT_ADV_TOGGLE>;
+        };
+
+        bt_clr_hold: behavior_bt_clr_hold {
+            compatible = "zmk,behavior-hold-tap";
+            label = "BT_CLR_HOLD";
+            tapping-term-ms = <2000>;
+            flavor = "tap-preferred";
+            bindings = <&bt BT_CLR>;
+        };
+    };
+
     /* ===== ปุ่ม Bluetooth ===== */
     bt_toggle: bt_toggle_switch {
         label = "BT Toggle";
         gpios = <&gpio0 29 GPIO_ACTIVE_LOW GPIO_PULL_UP>;
-        behavior = <&bt BT_ADV_TOGGLE>;
+        behavior = <&bt_adv_hold>;
     };
 
     bt_disconnect: bt_disconnect_switch {
         label = "BT Disconnect";
         gpios = <&gpio0 31 GPIO_ACTIVE_LOW GPIO_PULL_UP>;
-        behavior = <&bt BT_CLR>;
+        behavior = <&bt_clr_hold>;
     };
 
     chosen {
