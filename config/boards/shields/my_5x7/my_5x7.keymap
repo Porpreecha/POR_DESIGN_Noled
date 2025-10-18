@@ -17,7 +17,7 @@
                 &kp GRAVE  &kp O     &kp Z     &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &trans 
                 &kp TAB    &kp M     &kp Q     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_PLUS
                 &kp RSHFT  &kp E     &kp UP    &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &trans 
-                &mo 1      &kp LEFT  &kp DOWN  &kp RIGHT        &kp KP_NUMBER_0  &kp KP_DOT       &kp KP_ENTER
+                &bt BT_CLR      &kp LEFT  &kp DOWN  &kp RIGHT        &kp KP_NUMBER_0  &kp KP_DOT       &kp KP_ENTER
 
 
                             /*  ┌───────┬────────┬────────┬─────────┬─────────┬─────────┬────────┐
